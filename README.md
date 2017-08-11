@@ -1,4 +1,4 @@
-#Install Deps
+###Install Deps
 npm install 
-#Start project on localhost 3000
+### Quick start on port 3000
 npm start
