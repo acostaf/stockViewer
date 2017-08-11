@@ -1,0 +1,36 @@
+<div>
+  <h1 x-large class="sample-content">Your Stock </h1>
+
+  <hr>
+
+  <div>
+    <h4>Pick your stock</h4>
+    <form (ngSubmit)="subscribe(stock)" autocomplete="off">
+      <input placeholder="Your symbol" #stock>
+      <button>Subcribe</button>
+    </form>
+    <br>
+    <table class="table-striped">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Bid</th>
+          <th>Ask</th>
+          <th>Change</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let stock of stockList" [style.color]="stock.disabled ? 'grey' : ''">
+          <td>{{ stock.symbol }}</td>
+          <td>{{ stock.bid }}</td>
+          <td>{{ stock.ask }}</td>
+          <td>
+            <span [style.color]="stock.change < 0 ? 'red' : 'green'"> {{ stock.change }} </span>
+          </td>
+          <td> <button (click)="unsubcribe(stock.symbol)" [disabled]="stock.disabled">Unsubcribe</button> </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
